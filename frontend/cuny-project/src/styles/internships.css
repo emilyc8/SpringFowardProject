@@ -1,0 +1,387 @@
+.internships{
+    margin: 0 ;
+    padding: 0;
+    display: flex;
+    justify-self: center;
+    flex-direction: column;
+    width: 1519px;
+}
+/* in display grid */
+
+.internships .sidebar{
+    width: 265px;
+    left: 0;
+}
+.internships .stickywrap{
+    margin-left: 0px;
+    padding-left: 0px;
+    left: 0;
+    margin-left: 15px;
+
+}
+
+.internships .middle{
+    width: 110%;
+    padding-right: 0;
+}
+.internships .up{
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    margin: 0px;
+    margin-right: 2rem;
+    width: 650px;
+}
+
+.internships .searchbar input{
+    margin: 5px;
+    background: #FAFAFA;
+    font-size: 16px;
+    color: #ADADAD;
+    width: 650px;
+    height: 35px;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 3px 2px 1px rgba(0, 0, 0, 0.116);
+}
+
+
+.internships .main {
+    display: flex;
+    flex-direction: row;
+    justify-self: center;
+    margin: 0;
+    gap: 3rem;
+    padding-left: 0px;
+
+}
+
+.internships .searchbar input::placeholder{
+    font-size: 16px;
+    margin-top: 15px;
+}
+
+.internships .filters{
+    font-size: 13px;
+    display: flex;
+    float: left;
+    padding: 5px;
+    margin-left: 5px;
+    color: #ADADAD;
+}
+
+.internships .pick{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: center;
+
+
+}
+
+.internships .pick button{
+    background: none;
+    border-radius: 0;
+    transition: none;
+    font-weight: 400;
+    font-size: 13px;
+    width: 100px;
+    
+}
+
+.internships .pick button::after{
+    content: "";
+    height: 2px;
+    background: rgb(70, 129, 255);
+    border-radius: 0;
+    display: block;
+    opacity: 0;
+    outline: none;
+    pointer-events: none;
+    
+}
+.internships .pick button:focus{
+    outline: none;
+    border: none;
+}
+.internships .pick button:hover,
+.internships .pick button:focus,
+.internships .pick button:active{
+    border: none;
+    outline: none;
+}
+.internships .pick button:hover::after,
+
+.internships .pick button:focus::after{
+    outline: none;
+    border: none;
+    opacity: 1;
+}
+
+.internships .job{
+    font-size: 12px;
+    width: 650px;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background: white;
+    margin-right: 2rem;
+    height: fit-content;
+    border: 1px solid rgb(165, 165, 165);
+    
+}
+
+.under button.job{
+    transition: none;
+    border: inherit 1px;
+
+}
+button:focus.job{
+    outline: 0;
+    transition: none;
+    border: initial 1px;
+}
+
+
+.under button:hover.job,
+.under button:focus.job,
+.under button:active.job{
+    outline: 0;
+    transition: none;
+    background: #f1f1f1;
+    border: white 1px;
+}
+
+.under button:hover::after.job,
+.under button:focus::after.job, 
+.under button:active::after.job{
+    outline: none;
+    transition: none;
+    border: transparent;
+}
+
+.under .job .info{
+    display: flex;
+    flex-direction: row;
+    padding: 0px;
+
+}
+
+.under .job .info h1{
+    font-size: 20px;
+    font-weight: 400;
+    padding: 0px;
+    margin: 0px;
+
+}
+
+.under .job .info .date{
+    margin-left: 480px;
+    margin-top: 0px;
+}
+
+.under .job .info p{
+    font-weight: 400;
+    font-size: 16px;
+
+}
+
+.job .sub{
+    display: flex;
+    flex-direction: column;
+    float: left;
+}
+.job .sub p, .desc p{
+    margin: 0px;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 15px;
+}
+
+.under button.loadMore{
+    background: rgb(66, 135, 255);
+    color: #FAFAFA;
+    width: 150px;
+    margin-left: 230px;
+    font-size: 14px;
+}
+
+.job .status{
+    color:rgb(79, 186, 213);
+    font-weight: 500;
+    text-align: right;
+    display: flex;
+    flex-direction: row;
+    margin-left: 520px;
+    gap: 20px;
+
+}
+
+.status p{
+    margin: 0px;
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+.job svg{
+    align-self: flex-end;
+    color: rgb(0, 132, 255);
+    height: 20px;
+    margin-bottom: 15px;
+    padding-right: 10px;
+}
+
+.internships .under {
+    margin-top: 10px;
+    width: 1000px;
+    top: 0px;
+    margin-left: 0;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    /* border: 1px solid black; */
+
+}
+
+.under .uWrap{
+    display: flex;
+    flex-direction: row;
+}
+
+.under .openWrap,
+.openWrapS{
+    display: flex;
+    position: absolute;
+    right: 0;
+    margin-right: 1rem;
+}
+
+.openWrapS{
+    margin-top: 0px;
+    
+}
+
+.under .open, 
+.under .open2{
+    border: 1px solid black;
+    width: 450px;
+    background: #ffffff;
+    border-radius: 5px;
+    border: gainsboro 1px solid;
+    box-shadow: 0px 2px 5px 4px rgba(0, 0, 0, 0.116);
+    padding: 10px;
+    margin-bottom: 30px;
+
+}
+
+.open .close,
+.open2 .close{
+    display: flex;
+    float: right;
+}
+
+.open .card, 
+.open2 .card{
+    padding-top: 30px;
+    text-align: left;
+    margin-left: 10px;
+    margin-right: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.under .open h1.title,
+.under .open2 h1.title{
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.under .open h1,
+.under .open2 h1{
+    font-size: 16px;
+    font-weight: 400;
+
+}
+
+.card .desc{
+    margin-top: 10px;
+}
+
+.card ul{
+    font-size: 16px;
+    font-weight: 350;
+    line-height: 20px;
+}
+
+.openWrapS p{
+    font-weight: 400;
+    line-height: 17px;
+    font-size: 15px;
+}
+
+.openWrapS .sub{
+    padding-top: 30px;
+}
+
+
+.openWrapS .desc h1{
+    text-align: left;
+    margin-right: 200px;
+
+}
+
+.openWrap .card .sub p{
+    line-height: 5px;
+    font-size: 14px;
+}
+
+.under .open p,
+.under .open2 p{
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 350;
+}
+
+.card .apply{
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    font-size: 14px;
+}
+
+.close button{
+    background: none;
+}
+
+.card .apply button{
+    color: rgb(93, 185, 255);
+    border: 2px solid rgb(93, 185, 255);
+    background: #ffffff;
+    box-shadow: 0px 2px 3px 2px rgba(0, 0, 0, 0.116);
+}
+
+.card .apply button:hover{
+    background-color: rgb(93, 185, 255);
+    color: #ffffff;
+    
+}
+
+.card .apply button:active{
+    background-color: rgb(93, 185, 255);
+    color: #ffffff;
+    
+}
+
+
+.open2 button.edit{
+    font-size: 16px;
+    background: rgb(0, 132, 255);
+    color: #ffffff;
+    align-self: center;
+    margin-left: 200px;
+}

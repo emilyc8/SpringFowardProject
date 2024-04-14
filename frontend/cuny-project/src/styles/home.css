@@ -1,0 +1,539 @@
+
+.feed{
+    margin: 0 auto;
+    padding: 0;
+    display: flex;
+    justify-self: center;
+    flex-direction: column;
+    overflow-x:inherit;
+
+}
+
+.topbar{
+    background: #ACCDFF;
+    position: sticky;
+    top: 0;
+    height: 80px;
+    width: 110%;
+    display: flex;
+    flex-direction: row;
+}
+
+.topbar .logo{
+    padding-left: 30px;
+    margin-left: 30px;
+    border: 1px solid black;
+    
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.separation{
+    display: inline;
+    background: rgb(255, 255, 255);
+    position: sticky;
+    height: 20px;
+    top: 80px;
+}
+
+.main{
+    margin: 0;
+    display: grid;
+    padding: 0;
+    background: rgb(255, 255, 255);
+
+}
+
+.wrap{
+    grid-column-start: 1;
+    grid-row-start: 1;
+    width: 300px;
+    margin-left: 10px;
+    margin-right: 2rem;
+}
+
+.sidebar{
+    position: sticky;
+    top: 100px;
+    padding: 15px;
+    padding-top: 40px;
+    border: 3px solid #CCE0FF;
+    border-radius: 7px;
+    display: flex;
+    flex-direction: column;
+    float: left;
+    justify-content: left;
+    background: white;
+    
+}
+
+.sidebar .profile{
+    display: flex;
+    float: left;
+    margin-left: 20px;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.profile span{
+    margin-left: 20px;
+    padding-top: 15px;
+    font-size: 16px;
+    
+
+}
+
+.selection{
+    margin-left: 20px;
+    padding-bottom: 250px;
+}
+
+.sidebar button{
+    width: 200px;
+    float: left;
+    margin: 5px;
+    text-align: left;
+    display: flex;
+    height: 50px;
+    padding: 10px;
+    background: none;
+    color: black;
+    box-shadow: none;
+    border-radius: 30px;
+    padding-left: 15px;
+}
+
+.sidebar button span{
+    padding: 5px;
+    margin-left: 10px;
+    font-size: 16px;
+}
+
+.sidebar button img{
+    height: 25px;
+    display: flex;
+    margin-top: 0px;
+    padding: 0px;
+    margin-bottom: 5px;
+    margin-right: 10px;
+}
+
+.sidebar button:hover{
+    background-color: rgb(225, 225, 225);
+    border: none;
+}
+
+.sidebar .logout{
+    float: left;
+    display: flex;
+    margin-left: 20px;
+    margin-top: 30px;
+    padding-bottom: 40px;
+}
+
+
+.logout a{
+    float: left;
+    flex-direction: row;
+    display: flex;
+}
+
+.logout svg{
+    padding-top: 4px;
+    font-size: 12px;
+}
+
+.logout p{
+    padding: 0;
+    margin: 0;
+    margin-left: 10px;
+    font-size: 16px;
+}
+
+.stickymake{
+    background: #ffff;
+}
+.make{
+    position: sticky;
+    top: 100px;
+    grid-column-start: 2;
+    grid-row-start: 1;
+    height: 70px;
+    margin-bottom: 5px;
+    margin: 0;
+    border: 1px solid rgb(160, 160, 160);
+    border-radius: 5px;
+    flex-direction: row;
+    display: flex;
+    width: 750px;
+    margin-right: 1.4rem;
+    background: #ffff;
+    padding: 0px;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.471);
+}
+
+.make .pfp{
+    height: 50px;
+    padding-top: 10px;
+    padding-left: 20px;
+}
+
+.make input{
+    background: transparent;
+    border: 1px solid gainsboro;
+    border-radius: 20px;
+    width: 560px;
+    height: 30px;
+    float: left;
+    padding: 5px;
+    margin-left: 20px;
+    margin-top: 15px;
+
+  }
+  
+.make input::placeholder{
+    font-family: "League Spartan", sans-serif;
+    font-size: 14px;
+    color: #b5b5b5;
+    padding-left: 10px;
+}
+
+/* .make input:active{
+    /* add overlay 
+} */
+
+.feed .make button{
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+    margin-left: 20px;
+    margin-top: 20px;
+    padding: 5px;
+    font-size: 16px;
+    background-color: rgb(31, 95, 255);
+    color: rgb(255, 255, 255);
+}
+
+.posts p{
+    font-size: 14px;
+}
+
+.posts{
+    margin-top: 80px;
+    border-radius: 5px;
+    grid-column-start: 2;
+    grid-row-start: 1;
+    width: 750px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.posts .single{
+    padding: 20px;
+    border: 1px solid rgb(160, 160, 160);
+    border-radius: 5px;
+    background: white;
+}
+
+
+.posts .top{
+    display: flex;
+    flex-direction: row;
+
+}
+
+.feed .top .pfp{
+    display: flex;
+    height: 50px;
+}
+
+.posts .info{
+    line-height: 5px;
+    text-align: left;
+    margin-left: 20px;
+    border: none;
+}
+
+.posts .postText{
+    text-align: left;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.posts .interactions{
+    border-top: 1px solid gainsboro;
+    display: flex;
+    flex-direction: row;
+    padding-top: 10px;
+    gap: 10px;
+
+}
+
+.posts .image img{
+    width: 710px;
+}
+
+.posts button {
+    display: flex;
+    flex-direction: row;
+    width: 90px;
+    max-width: max-content;
+    height: 40px;
+    padding-bottom: 30px;
+    padding: 10px;
+    background: none;
+    color: black;
+    background: #ffff;
+
+}
+
+.posts button span{
+    padding-top: 3px;
+}
+
+.posts  button:hover{
+    color: rgb(75, 171, 255);
+    border: none;
+}
+.likes button:hover {
+    /* Styles for hover state */
+    background-color: lightblue; /* Change to a different color on hover */
+  }
+
+/* .posts .likes button:active{
+    
+} */
+
+.posts button svg{
+    margin-right: 10px;
+}
+
+
+.posts .singleImage{
+    padding: 20px;
+    border: 1px solid rgb(160, 160, 160);
+    border-radius: 5px;
+    background: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.rightbar{
+    margin: 0px;
+    margin-left: 0;
+    margin-right: 2rem;
+    grid-column-start: 3;
+    grid-row-start: 1;
+    width: 310px;
+    border: 1px solid rgb(230, 230, 230);
+    background: #ffff;
+    border-radius: 5px;
+    padding: 20px;
+    height: max-content;
+    box-shadow: 0px 4px 4px #00000026;
+}
+
+.rightbar h3{
+    text-align: left;
+    margin-left: 20px;
+    font-size: 18px;
+    margin-top: 0px;
+    color: rgb(148, 154, 169);
+}
+
+
+.person button.follow{
+    grid-column-start: 3;
+    width:40px;
+    height:40px;
+    justify-self: right;
+    padding: 0;
+    border-radius: 30px;
+    margin-top: 10px;
+    
+}
+
+.rightbar .person{
+    border-top: 1px solid gainsboro;
+    padding: 10px;
+    display: grid;
+}
+
+.rightbar .info{
+    line-height: 5px;
+    text-align: left;
+    margin-left: 0px;
+    grid-column-start: 2;
+    font-size: 14px;
+    float: left;
+    width: fit-content;
+}
+
+.rightbar img{
+    height: 50px;
+    width: 50px;
+    margin-right: 20px;
+}
+
+.rightbar p{
+    padding-top: 0px;
+    margin-bottom: 15px;
+    display: flex;
+}
+
+.rightbar p2{
+    font-size: 12px;
+}
+
+.feed .back{
+    position: absolute;
+    width: 105%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.189);
+    z-index: 9;
+    overflow-y: none;
+}
+
+.feed .card{
+    position: absolute;
+    justify-self: center;
+    z-index: 7;
+    background: white;
+    margin-left: 21%;
+    width: 730px;
+    height: fit-content;
+    min-height: 200px;
+    border-radius: 10px;
+    padding: 20px;
+    padding-left: 30px;
+    margin-top: 8%;
+    
+
+}
+
+.card .close{
+    align-self:flex-end;
+    margin-left: 685px;
+    font-size: 20px;
+
+}
+
+.close button{
+    font-weight: 100;
+    padding: 5px;
+    padding-left: 8px;
+    padding-right: 8px;
+    border-radius: 90px;
+}
+.close button:hover{
+    background-color: #e4e4e4;
+    border: 1px solid #d0d0d0;
+}
+
+.card .top{
+    display: flex;
+    flex-direction: row;
+
+}
+
+.card .top img{
+    height: 50px;
+}
+
+.card .top p{
+    margin-left: 30px;
+    font-size: 16px;
+}
+
+.card .texta{
+    margin-right: 30px;
+}
+
+
+.card .area{
+    font-family: "League Spartan", sans-serif;
+    margin-top: 15px;
+    margin-left: 15px;
+    min-height: 100px;
+    width: 680px;
+    resize: none;
+    font-size: 16px;
+    outline: none;
+    overflow: hidden;
+    
+}
+
+.card TextareaAutosize::placeholder{
+    margin-top: 0;
+    font-size: 11px;
+    vertical-align: top;
+    margin-right: 10px;
+} 
+
+textarea{
+    border: none;
+}
+
+.card .area:active,
+.card .area:focus,
+.card .area:active:focus:after{
+    border: none;
+    outline: none;
+}
+
+.card .media{
+    display: flex;
+    float: left;
+    gap: 10px;
+    margin-left: 15px;
+    padding-top: 20px;
+    padding-bottom: 0;
+   
+}
+
+.card .media svg{
+    height: 15px;
+    color: rgba(82, 82, 82, 0.737);
+}
+
+.media .text{
+    margin-left: 0;
+}
+
+#the-count{
+    font-size: 12px;
+    margin-left: 20px;
+}
+
+.card .poll{
+    margin-left: 30px;
+}
+.poll textarea{
+    font-family: "League Spartan", sans-serif;
+    width: 500px;
+    margin-left: 20px;
+    border-bottom: 1px solid gainsboro;
+    resize: none;
+    font-size: 16px;
+}
+.poll textarea:focus{
+    outline: none;
+    border-bottom: 1px solid rgb(90, 173, 255);
+    
+}
+.poll p{
+    font-size: 16px;
+    margin-bottom: 0px;
+}
+
+.poll select{
+    font-family: "League Spartan", sans-serif;
+    width: 100px;
+    border-radius: 5px;
+    margin-top: 0;
+    font-size: 16px;
+}
+
+
