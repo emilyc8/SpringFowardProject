@@ -1,0 +1,75 @@
+.welcome-text{
+    color: rgb(0, 94, 255);
+    font-family: "Poppins", sans-serif;
+    position: absolute;
+    left: 45%;
+    top: 35%;
+  }
+
+  .input-group.input-group-username input {
+    width: calc(100% - 20px); /* Adjust the width as needed */
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  .input-group1 input {
+    width: 300%;  /* Adjust the width as needed, 100% makes it fill the container */
+    padding: 10px;  /* Adjust padding to make the input taller */
+    font-size: 16px;  /* Adjust font size for better visibility */
+    border: 1px solid #ccc;  /* Example border, modify as needed */
+    border-radius: 5px;  /* Rounded corners for aesthetics */
+  }
+  
+  .input-group2 input {
+    width: 300%;  /* Adjust the width as needed, 100% makes it fill the container */
+    padding: 10px;  /* Adjust padding to make the input taller */
+    font-size: 16px;  /* Adjust font size for better visibility */
+    border: 1px solid #ccc;  /* Example border, modify as needed */
+    border-radius: 5px;  /* Rounded corners for aesthetics */
+  }
+
+.input-group1{
+    position: absolute;
+    max-width: 500px;
+    left: 35%;
+    top: 45%;
+}
+.input-group2{
+    position: absolute;
+    left: 35%;
+    top: 50%;
+}
+
+.submit-button{ /* sign in buttom */
+    position: absolute;
+    left: 69%;
+    top: 53%;
+}
+
+.sign-in{
+    color: gray;
+    font-family: "Poppins", sans-serif;
+    position: absolute;
+    left: 45%;
+    top: 40%;
+}
+
+.account-text{
+    position: absolute;
+    left: 45%;
+    top: 55%;
+}
+
+.submit-button{
+    background-color: #fff;
+    background-color: rgba(255,255,255,0.5);
+    padding: 10px;
+    color: black;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+
