@@ -1,3 +1,27 @@
+.logo1{
+    display: flex;
+    flex-direction: row;
+    opacity: 1;
+    margin-left: 30px;
+}
+
+.logo1 .image{
+    border: 1px solid rgb(255, 255, 255);
+    height: 50px;
+    width: 100px;
+    display: flex;
+    margin-top: 15px;
+}
+
+.logo1 p{
+    margin-left: 20px;
+    color: rgb(255, 255, 255);
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 35px;
+    font-weight: 300;
+    margin-top: 20px;
+}
+
 .student{
     margin: 0 auto;
     padding: 0;
@@ -17,6 +41,8 @@
 .topbar{
     z-index: 1;
 }
+
+
 .separation{
     z-index: 1;
 }
@@ -177,12 +203,14 @@ button.footer {
     text-align: left;
     margin-inline-end: 0;
 }
+.postJob .create{
+    grid-column-start: 3;
+}
 .postJob button{
     grid-column-start: 3;
     height: 40px;
     border-radius: 30px;
-    background: rgba(72, 148, 255, 0.867);
-    margin-top: 30px;
+    background: rgba(34, 78, 141, 0.867);
     font-size: 16px;
     width: 100px;
     margin-left: 100px;

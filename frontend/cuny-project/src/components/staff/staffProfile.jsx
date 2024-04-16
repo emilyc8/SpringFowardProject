@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
-import "../../styles/professorProfile.css";
+import "../../styles/staffProfile.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretDown, faLessThan} from "@fortawesome/free-solid-svg-icons";
+import Create_Job from "./createJob";
 
-function Professor_Profile(){
+function Staff_Profile(){
     const name = "Full Name";
     
     let types = {
@@ -26,8 +27,9 @@ function Professor_Profile(){
         <div className="student">
             <div class="sticky topbar">
                 {/* insert image logo when created */}
-                <div className="logo">
-                    <p>Logo/</p>
+                <div className="logo1">
+                    <div className="image"></div>
+                    <p>CUNY Connect</p>
                 </div>
             </div>
             <div class="sticky separation"></div>
@@ -39,24 +41,24 @@ function Professor_Profile(){
                             <span>Full Name</span>
                         </div>
                         <div className="selection">
-                            <Link to="/professor/professorProfile">
+                            <Link to="/staff/staffProfile">
                                 <button className="Profile"><img src="../profile_logo.png"></img>
                                 <span>Profile</span>
                                 </button>
                            </Link> 
-                            <Link to="/professor/professorHome">
+                            <Link to="/staff/staffHome">
                                 <button className="Home"><img src="../home_logo.png"></img>
                                     <span>Home</span>
                                 </button>
                             </Link>
-                            <Link to = "/professor/professorInternships">
+                            <Link to = "/staff/staffInternships">
                                 <button className="Internships"><img src="../inter_logo.png"></img>
                                     <span>Internships</span>
                                 </button>
                             </Link>
                         </div>
                         <div className="logout">
-                            <Link to="/login">
+                            <Link to="/">
                                 <FontAwesomeIcon icon={faLessThan} /><p>Log Out</p>
                             </Link>
                         </div>
@@ -89,9 +91,9 @@ function Professor_Profile(){
                             
                             <h1>Are you Hiring?</h1>
                             <div className="ewrap">
-                                <img className="school logo" src="../post.jpg" height={100} width={150}></img>
+                                <img className="image" src="../post.png" height={100} width={150}></img>
                                 <p>Begin showcasing your job, internship or volunteer opportunity with students</p>
-                                <button>Create</button>
+                                <div className="create"><Link to= '/staff/createJob/'><button>Create</button></Link></div>
                             </div>
                         </div>
                         <div className="posts2">
@@ -134,4 +136,4 @@ function Professor_Profile(){
         </div>
     );
 }
-export default Professor_Profile
+export default Staff_Profile

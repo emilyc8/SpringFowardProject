@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import './styles/StudentLogin.css'; 
+import '../styles/StudentLogin.css'; 
+import { Link } from 'react-router-dom';
 
 function StaffLogin() {
     const [username, setUsername] = useState('');
@@ -34,7 +35,7 @@ function StaffLogin() {
               required
             />
           </div>
-          <button type="submit" className="submit-button">Sign In</button>
+          <Link to="/student/studentHome"><button type="submit" className="submit-button">Sign In</button></Link>
           <p className="account-text">
             Don’t have an account? <a href="/register">Create one</a>
           </p>

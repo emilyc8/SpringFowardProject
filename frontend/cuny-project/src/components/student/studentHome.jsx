@@ -6,6 +6,7 @@ import { faPlus, faLessThan } from "@fortawesome/free-solid-svg-icons";
 import {faComment} from "@fortawesome/free-regular-svg-icons"
 import LikeButton from '../likeButton'  
 import PostOverlay from '../postOverlay'
+import ConnectButton from '../connectButton';
 
 
 function Home(){
@@ -47,8 +48,9 @@ function Home(){
             <PostOverlay isOpen={isOn} onClose={() => setIsOn(!isOn)}/>
             <div class="sticky topbar">
                 {/* insert image logo when created */}
-                <div className="logo">
-                    <p>Logo/</p>
+                <div className="logo1">
+                    <div className="image"></div>
+                    <p>CUNY Connect</p>
                 </div>
             </div>
             <div class="sticky separation"><br></br></div>
@@ -77,7 +79,7 @@ function Home(){
                             </Link>
                         </div>
                         <div className="logout">
-                        <Link to="/login">
+                        <Link to="/">
                         <FontAwesomeIcon icon={faLessThan} /><p>Log Out</p>
                         </Link>
                     </div>
@@ -155,7 +157,7 @@ function Home(){
                                 <p>{name} - {types.type1}</p>
                                 <p2>{schools.school1}</p2>
                             </div>
-                            <connectButton/>
+                            <ConnectButton className="connect"/>
                         </div>
                         <div className="person">
                             <img className="pfp" src="../pfp.png"/>
@@ -163,7 +165,7 @@ function Home(){
                                 <p>{name} - {types.type1}</p>
                                 <p2>{schools.school2}</p2>
                             </div>
-                            <connectButton/>
+                            <ConnectButton className="connect"/>
                         </div>
                         <div className="person">
                             <img className="pfp" src="../pfp.png"/>
@@ -171,7 +173,7 @@ function Home(){
                                 <p>{name} - {types.type1}</p>
                                 <p2>{schools.school3}</p2>
                             </div>
-                            <connectButton/>
+                            <ConnectButton className="connect"/>
                         </div>
                         
                     </div>

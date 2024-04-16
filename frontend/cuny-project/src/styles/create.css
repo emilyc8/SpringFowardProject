@@ -7,8 +7,30 @@
     background: rgb(246, 246, 246);
 }
 
+button.exit {
+    background: #ffff;
+    border:1px solid gainsboro;
+    width: 100%;
+}
+button.exit:hover {
+    background: #aa0303;
+    border:1px solid gainsboro;
+    color: #ffff;
+}
+
+button.save {
+    background: #ffff;
+    border:1px solid gainsboro;
+    width: 100%;
+}
+button.save:hover {
+    background: #1768ff;
+    border:1px solid gainsboro;
+    color: #ffff;
+}
+
 .topbar{
-    background: #ACCDFF;
+    /* background: #ACCDFF; */
     position: sticky;
     top: 0;
     height: 80px;
@@ -21,7 +43,6 @@
     padding-left: 30px;
     margin-left: 30px;
     border: 1px solid black;
-    
     margin-top: 20px;
     margin-bottom: 20px;
 }
@@ -39,7 +60,7 @@
     justify-self: center;
     width: fit-content;
     margin-top: 30px;
-
+    padding-bottom: 30px;
     gap: 20px;
 }
 
@@ -47,7 +68,7 @@
     font-size: 20px;
 }
 
-.basicInfo, .jobInfo{
+.basicInfo, .jobInfo, .applications{
     display: flex;
     flex-direction: column;
     border: 1px solid gainsboro;
@@ -56,19 +77,25 @@
     background: white;
 }
 
-textarea{
+.create textarea{
     width: 500px;
     border: 1px solid gainsboro;
     resize: none;
-    font-size: 14px;
+    font-size: 16px;
     height: 40px;
+    font-family: "League Spartan", sans-serif;
+    padding: 5px;
+    overflow: hidden;
 }
 
 select{
     width: 150px;
-    padding: 10px;
-    border-radius: 5px;
+    padding: 11px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
     border: 1px solid gainsboro;
+    font-family: "League Spartan", sans-serif;
+    font-size: 16px;
 }
 
 select option.hid{
@@ -81,4 +108,14 @@ textarea::placeholder{
 
 input::placeholder{
     font-size: 14px;
+    font-family: "League Spartan", sans-serif;
 }
+
+.jobInfo input{
+    padding: 11px;
+    border: 1px solid gainsboro;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+/* APPLICATIONS */

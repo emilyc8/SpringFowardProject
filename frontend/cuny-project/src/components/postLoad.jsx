@@ -1,7 +1,7 @@
 // import './cssfiles/internships.css'
 import React, {useState} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEye } from '@fortawesome/free-solid-svg-icons';
+import { faEye, faBookmark } from '@fortawesome/free-solid-svg-icons';
 import Open from './display.jsx';
 
 

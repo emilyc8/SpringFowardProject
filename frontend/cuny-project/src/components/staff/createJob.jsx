@@ -1,30 +1,32 @@
 import TextareaAutosize from 'react-textarea-autosize';
 import React from 'react';
 import '../../styles/create.css'
+import { Link } from "react-router-dom";
 
 function Create_Job(){
     return(
         <div className="createPage">
             <div class="sticky topbar">
                 <div className="logo">
-                    <div>logo</div>
+                    CUNY Connect
                 </div>
             </div>
             <div className="create">
+                <Link to="/staff/staffProfile"><button className='exit'>Exit</button></Link>
                 <div className="basicInfo">
                     <h1>Basic Information</h1>
                     <div className="one">
                         <div className="company">
                             <p>Company: *</p>
-                            <TextareaAutosize maxLength={40}/>
+                            <TextareaAutosize maxLength={40} placeholder='Company Name...' required/>
                         </div>
                         <div className="location">
                             <p>Location: *</p>
-                            <TextareaAutosize maxLength={40}/>
+                            <TextareaAutosize maxLength={40} placeholder='Location of Company...'/>
                         </div>
                         <div className="workplace">
                             <p>Workplace: *</p>
-                            <TextareaAutosize maxLength={40}/>
+                            <TextareaAutosize maxLength={40} placeholder='Eg. Remote, In-person, etc.'/>
                         </div>
                         <div className="type">
                             <p>Type: *</p>
@@ -56,7 +58,7 @@ function Create_Job(){
                         <p>Salary:</p>
                         <input type='number' placeholder='Eg. 40,000$'></input> 
                         <select>
-                            <option disabled hidden>Select One</option>
+                            <option disable selected hidden>Select One</option>
                             <option>Hourly</option>
                             <option>Weekly</option>
                             <option>Bi-weekly</option>
@@ -78,12 +80,13 @@ function Create_Job(){
                     <div className="reciveType">
                         <p>How would you like to recive applications?</p>
                         <select>
-                            <option disabled hidden>Select One</option> 
+                            <option disable hidden>Select One</option> 
                             <option >Website</option> 
                             <option>External Site</option>
                         </select>
                     </div>
                 </div>
+                <button className='save'>Post</button>
             </div>
         </div>
     );

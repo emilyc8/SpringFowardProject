@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserPlus, faUserCheck } from '@fortawesome/free-solid-svg-icons';
 
 
-function connectButton() {
+function ConnectButton() {
   // State to manage if the user is followed (or button is clicked)
   const [isClicked, setIsClicked] = useState(false);
 
@@ -23,4 +23,4 @@ function connectButton() {
   );
 }
 
-export default connectButton;
+export default ConnectButton;

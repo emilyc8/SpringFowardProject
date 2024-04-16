@@ -4,46 +4,31 @@ import './App.css'
 import Home from './components/student/studentHome.jsx'
 import Internships from './components/student/studentInternships.jsx'
 import Student_Profile from './components/student/studentProfile.jsx'
-import Professor_Profile from './components/professor/professorProfile.jsx'
+import Staff_Profile from './components/staff/staffProfile.jsx'
 // import Other_Profile from './components/student/otherProfile.jsx';
-import Internships2 from './components/professor/professorInternships.jsx'
-import Create_Job from './components/professor/createJob.jsx';
+import Internships2 from './components/staff/staffInternships.jsx'
+import Create_Job from './components/staff/createJob.jsx';
+import Start from './components/Start.jsx'
+import StudentLogin from './components/StudentLogin.jsx';
+import StaffLogin from './components/StaffLogin.jsx';
 import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom'
 
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
+          <Route path='/' element = {<Start/>}/>
 
-          <Route
-            path='/student/studentHome'
-            element = {<Home/>}
-          />
+          <Route path="/studentLogin" element={<StudentLogin />} />
+          <Route path="/staffLogin" element={<StaffLogin />} />
 
-          <Route
-            path='/student/studentProfile'
-            element = {<Student_Profile/>}
-          />
-          
-          <Route
-            path='/student/studentInternships'
-            element = {<Internships/>}
-          />
+          <Route path='/student/studentHome'element = {<Home/>}/>
+          <Route path='/student/studentProfile' element = {<Student_Profile/>}/>
+          <Route path='/student/studentInternships' element = {<Internships/>}/>
 
-          <Route
-            path='/professor/professorProfile'
-            element = {<Professor_Profile/>}
-          />
-
-          <Route
-            path='/professor/professorInternships'
-            element = {<Internships2/>}
-          />
-
-          <Route 
-            path='/professor/createJob'
-            element={<Create_Job/>}
-          />
+          <Route path='/staff/staffProfile' element = {<Staff_Profile/>}/>
+          <Route path='/staff/staffInternships' element = {<Internships2/>}/>
+          <Route path='/staff/createJob' element={<Create_Job/>}/>
 
 
           {/* <Route

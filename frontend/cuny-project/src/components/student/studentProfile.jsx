@@ -3,6 +3,7 @@ import "../../styles/studentProfile.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretDown, faLessThan} from "@fortawesome/free-solid-svg-icons";
 
+
 function Student_Profile(){
     const name = "Full Name";
     
@@ -29,8 +30,9 @@ function Student_Profile(){
         <div className="student">
             <div class="sticky topbar">
                 {/* insert image logo when created */}
-                <div className="logo">
-                    <p>Logo/</p>
+                <div className="logo1">
+                    <div className="image"></div>
+                    <p>CUNY Connect</p>
                 </div>
             </div>
             <div class="sticky separation"></div>
@@ -52,14 +54,14 @@ function Student_Profile(){
                                     <span>Home</span>
                                 </button>
                             </Link>
-                            <Link to = "/student/internships">
+                            <Link to = "/student/studentInternships">
                                 <button className="Internships"><img src="../inter_logo.png"></img>
                                     <span>Internships</span>
                                 </button>
                             </Link>
                         </div>
                         <div className="logout">
-                            <Link to="/login">
+                            <Link to="/">
                                 <FontAwesomeIcon icon={faLessThan} /><p>Log Out</p>
                             </Link>
                         </div>
@@ -117,7 +119,7 @@ function Student_Profile(){
                         <div className="education">
                             <h1>Education</h1>
                             <div className="ewrap">
-                                <img className="school logo" src="../JJC_logo.png" height={50} width={50}></img>
+                                <img className="school" src="../JJC_logo.png" height={50} width={50}></img>
                                 <p>{schools.school2}</p>
                             </div>
                         </div>

@@ -10,7 +10,7 @@
 }
 
 .topbar{
-    background: #ACCDFF;
+    background: #084173;
     position: sticky;
     top: 0;
     height: 80px;
@@ -57,7 +57,7 @@
     top: 100px;
     padding: 15px;
     padding-top: 40px;
-    border: 3px solid #CCE0FF;
+    border: 3px solid #0841737a;
     border-radius: 7px;
     display: flex;
     flex-direction: column;
@@ -154,6 +154,7 @@
     background: #ffff;
 }
 .make{
+    box-sizing: none;
     position: sticky;
     top: 100px;
     grid-column-start: 2;
@@ -210,7 +211,7 @@
     margin-top: 20px;
     padding: 5px;
     font-size: 16px;
-    background-color: rgb(31, 95, 255);
+    background-color: rgb(62, 80, 126);
     color: rgb(255, 255, 255);
 }
 
@@ -249,10 +250,11 @@
 }
 
 .posts .info{
-    line-height: 5px;
+    line-height: 1px;
     text-align: left;
     margin-left: 20px;
     border: none;
+    padding: 10px;
 }
 
 .posts .postText{
@@ -294,17 +296,10 @@
 }
 
 .posts  button:hover{
-    color: rgb(75, 171, 255);
+    color: rgb(6, 89, 255);
     border: none;
 }
-.likes button:hover {
-    /* Styles for hover state */
-    background-color: lightblue; /* Change to a different color on hover */
-  }
 
-/* .posts .likes button:active{
-    
-} */
 
 .posts button svg{
     margin-right: 10px;
@@ -344,7 +339,7 @@
 }
 
 
-.person button.follow{
+.person button.connect{
     grid-column-start: 3;
     width:40px;
     height:40px;
@@ -520,7 +515,7 @@ textarea{
 }
 .poll textarea:focus{
     outline: none;
-    border-bottom: 1px solid rgb(90, 173, 255);
+    border-bottom: 1px solid rgb(58, 130, 255);
     
 }
 .poll p{

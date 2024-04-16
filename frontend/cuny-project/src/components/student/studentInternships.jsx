@@ -38,8 +38,9 @@ export default function Internships(){
         <div className="internships">
             <div class="sticky topbar">
                 {/* insert image logo when created */}
-                <div className="logo">
-                    <p>Logo/</p>
+                <div className="logo1">
+                    <div className="image"></div>
+                    <p>CUNY Connect</p>
                 </div>
             </div>
             <div class="sticky separation"></div>
@@ -68,7 +69,7 @@ export default function Internships(){
                             </Link>
                         </div>
                         <div className="logout">
-                            <Link to="/login">
+                            <Link to="/">
                                 <FontAwesomeIcon icon={faLessThan} /><p>Log Out</p>
                             </Link>
                         </div>
@@ -96,8 +97,8 @@ export default function Internships(){
                     </div>
                     <div className="under">
                         {active === "one" && list.map(()=><Load type = "type1"/>)}
-                        {active === "two" && list.map(()=><Load type = "type2"/>)}
-                        {active === "three" && list2.map(() =><Load type = "type3"/>)}
+                        {active === "two" && list.map(()=><Load type = "type1"/>)}
+                        {active === "three" && list2.map(() =><Load type = "type2"/>)}
                         {active === "two" && showMore && <button className="loadMore" onClick={loadMore}> Load More </button>}
                     </div>
                 </div>

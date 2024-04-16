@@ -34,8 +34,9 @@ export default function Internships2(){
         <div className="internships">
             <div class="sticky topbar">
                 {/* insert image logo when created */}
-                <div className="logo">
-                    <p>Logo/</p>
+                <div className="logo1">
+                    <div className="image"></div>
+                    <p>CUNY Connect</p>
                 </div>
             </div>
             <div class="sticky separation"></div>
@@ -47,24 +48,24 @@ export default function Internships2(){
                             <span>Full Name</span>
                         </div>
                         <div className="selection">
-                            <Link to="/professor/professorProfile">
+                            <Link to="/staff/staffProfile">
                                 <button className="Profile"><img src="../profile_logo.png"></img>
                                 <span>Profile</span>
                                 </button>
                            </Link> 
-                            <Link to="/professor/professorHome">
+                            <Link to="/staff/staffHome">
                                 <button className="Home"><img src="../home_logo.png"></img>
                                     <span>Home</span>
                                 </button>
                             </Link>
-                            <Link to = "/professor/professorInternships">
+                            <Link to = "/staff/staffInternships">
                                 <button className="Internships"><img src="../inter_logo.png"></img>
                                     <span>Internships</span>
                                 </button>
                             </Link>
                         </div>
                         <div className="logout">
-                            <Link to="/login">
+                            <Link to="/">
                                 <FontAwesomeIcon icon={faLessThan} /><p>Log Out</p>
                             </Link>
                         </div>

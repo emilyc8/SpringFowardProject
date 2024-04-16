@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './styles/Home.css';
+import '../styles/Start.css';
 
-const Home = () => {
+const Start = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -37,15 +37,15 @@ const Home = () => {
   }, []);
 // click handling
   const handleStudentClick = () => {
-    navigate('/student');
+    navigate('/studentLogin');
   };
 
   const handleStaffClick = () => {
-    navigate('/staff');
+    navigate('/staffLogin');
   };
 // button creation 
   return (
-    <div>
+    <div className="wrapping">
       <div className="intro">
         <h1 className="logo-header">
           <span className="logo">[ CUNY</span> <span className="logo">Connect ]</span>
@@ -60,4 +60,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Start;
