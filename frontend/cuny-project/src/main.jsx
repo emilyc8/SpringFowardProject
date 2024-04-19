@@ -12,6 +12,7 @@ import Start from './components/Start.jsx'
 import StudentLogin from './components/StudentLogin.jsx';
 import StaffLogin from './components/StaffLogin.jsx';
 import Register from './components/Register.jsx';
+import StaffRegister from './components/staffRegister.jsx'
 import AdditionalInformation from './components/AdditionalInformation.jsx'
 import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom'
 
@@ -24,6 +25,7 @@ const router = createBrowserRouter(
           <Route path="/studentLogin" element={<StudentLogin />} />
           <Route path="/staffLogin" element={<StaffLogin />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/staffRegister" element={<StaffRegister />} />
           <Route path="/additionalInformation" element={<AdditionalInformation />} />
 
 

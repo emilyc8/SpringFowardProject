@@ -230,7 +230,7 @@ button.footer {
 }
 
 /*  SKILLS */
-.skills{
+.student .skills{
     display: flex;
     flex-direction: column;
     padding: 20px;
@@ -240,13 +240,13 @@ button.footer {
 
 }
 
-.skills button{
+.student .skills button{
     align-self: center;
     margin-left: 30px;
     text-align: left;
 }
 
-.skills .skill_list{
+.student .skills .skill_list{
     list-style-type: none;
     text-align: left;
     line-height: 30px;

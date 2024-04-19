@@ -5,6 +5,8 @@
     position: absolute;
     left: 45%;
     top: 35%;
+    margin-left: 20px;
+    margin-bottom: 2  0px;
   }
 
   .input-group.input-group-username input {
@@ -13,6 +15,7 @@
     border: 1px solid #ced4da;
     border-radius: 4px;
     box-sizing: border-box;
+    margin-top: 10px;
   }
 
   .input-group1 input {
@@ -21,6 +24,7 @@
     font-size: 16px;  
     border: 1px solid #ccc;  
     border-radius: 5px;  
+    margin-top: 20px;
   }
   
   .input-group2 input {
@@ -29,6 +33,7 @@
     font-size: 16px; 
     border: 1px solid #ccc;  
     border-radius: 5px;  
+    margin-top: 30px;
   }
 
 .input-group1{
@@ -47,6 +52,7 @@
     position: absolute;
     left: 69%;
     top: 53%;
+    margin-top: 50px;
 }
 
 .sign-in{
@@ -55,12 +61,23 @@
     position: absolute;
     left: 45%;
     top: 40%;
+    margin: 20px;
+    text-align: center;
+}
+
+.error-message{
+  display: flex;
+  position: absolute;
+  left: 50%;
+  top: 63%;
+
 }
 
 .account-text{
     position: absolute;
     left: 45%;
     top: 55%;
+    margin-top: 90px;
 }
 
 .submit-button{

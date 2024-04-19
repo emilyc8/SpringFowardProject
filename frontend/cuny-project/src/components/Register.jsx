@@ -1,30 +1,47 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import '../styles/Register.css';
+import axios from 'axios'
 
 function Register() {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [birthMonth, setBirthMonth] = useState('');
-  const [birthDay, setBirthDay] = useState('');
-  const [birthYear, setBirthYear] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: '',
+    type: 'Student'
+  });
 
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleChange = (e) =>{
+    setFormData({...formData, [e.target.name]: e.target.value});
+  }
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    console.log({
-      firstName,
-      lastName,
-      birthDate: `${birthMonth}/${birthDay}/${birthYear}`,
-      email,
-      password,
-    });
-    
-    navigate('/AdditionalInformation'); 
+    setError(''); // Clear any existing errors
+    try {
+      const response = await axios.post('http://127.0.0.1:5000/register', formData);
+      console.log('Registration successful:', response.data);
+      localStorage.setItem('userId', response.data.userId);  
+      navigate('/additionalInformation');
+      
+    } catch (error) {
+      if (error.response) {
+        console.error('Registration error:', error.response.data);
+        setError(error.response.data.message);  // Display error message from server
+      } else if (error.request) {
+        console.error('Network error:', error.request);
+        setError('Network error, please try again');
+      } else {
+        // Something happened in setting up the request that triggered an Error
+        console.error('Error:', error.message);
+        setError('Error during registration');
+      }
+    }
   };
 
 
@@ -32,28 +49,23 @@ function Register() {
     <div className="register-container">
       <h2 className="welcome-text1">Create An Account</h2>
       <h3 className="sign-in1">Begin making connections today</h3>
+
       <form onSubmit={handleSubmit}>
         <div className="input-group">
-          <input type="text" placeholder="First Name" required value={firstName} onChange={(e) => setFirstName(e.target.value)} />
+          <input type="text" name='firstName' placeholder="First Name"  value={formData.firstName} onChange={handleChange} required/>
         </div>
         <div className="input-group">
-          <input type="text" placeholder="Last Name" required value={lastName} onChange={(e) => setLastName(e.target.value)} />
-        </div>
-        <div className="input-group input-group-birthday">
-        
-          <input type="text" placeholder="MM" required value={birthMonth} onChange={(e) => setBirthMonth(e.target.value)} />
-          <input type="text" placeholder="DD" required value={birthDay} onChange={(e) => setBirthDay(e.target.value)} />
-          <input type="text" placeholder="YYYY" required value={birthYear} onChange={(e) => setBirthYear(e.target.value)} />
-          <p className="input-label-b">BIRTHDATE</p>
+          <input type="text" name='lastName' placeholder="Last Name"  value={formData.lastName} onChange={handleChange} required/>
         </div>
         <div className="input-group">
         <p className="input-label">EMAIL</p>
-          <input type="email" placeholder="Enter Email" required value={email} onChange={(e) => setEmail(e.target.value)} />
+          <input type="email" name='email' placeholder="Enter Email" value={formData.email} onChange={handleChange} required/>
         </div>
         <div className="input-group">
         <p className="input-label">PASSWORD</p>
-          <input type="password" placeholder="Password" required value={password} onChange={(e) => setPassword(e.target.value)} />
+          <input type="password" name='password' placeholder="Password"  value={formData.password} onChange={handleChange} required/>
         </div>
+        {error && <div style={{ color: 'red' }}>{error}</div>}
         <button type="submit" className="submit-button1">Next</button>
       </form>
       <div className="account-text1">
