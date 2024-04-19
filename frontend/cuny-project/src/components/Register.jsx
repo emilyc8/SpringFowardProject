@@ -40,14 +40,18 @@ function Register() {
           <input type="text" placeholder="Last Name" required value={lastName} onChange={(e) => setLastName(e.target.value)} />
         </div>
         <div className="input-group input-group-birthday">
+        
           <input type="text" placeholder="MM" required value={birthMonth} onChange={(e) => setBirthMonth(e.target.value)} />
           <input type="text" placeholder="DD" required value={birthDay} onChange={(e) => setBirthDay(e.target.value)} />
           <input type="text" placeholder="YYYY" required value={birthYear} onChange={(e) => setBirthYear(e.target.value)} />
+          <p className="input-label-b">BIRTHDATE</p>
         </div>
         <div className="input-group">
+        <p className="input-label">EMAIL</p>
           <input type="email" placeholder="Enter Email" required value={email} onChange={(e) => setEmail(e.target.value)} />
         </div>
         <div className="input-group">
+        <p className="input-label">PASSWORD</p>
           <input type="password" placeholder="Password" required value={password} onChange={(e) => setPassword(e.target.value)} />
         </div>
         <button type="submit" className="submit-button1">Next</button>
