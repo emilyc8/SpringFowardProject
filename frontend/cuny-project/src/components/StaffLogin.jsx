@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 
 function StaffLogin() {
+  
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -37,7 +38,7 @@ function StaffLogin() {
         </div>
         <Link to="/staff/staffProfile"><button type="submit" className="submit-button">Sign In</button></Link>
         <p className="account-text">
-          Don’t have an account? <a href="/register">Create one</a> 
+        Don’t have an account? <Link to="/register">Create one</Link>
         </p>
       </form>
     </div>

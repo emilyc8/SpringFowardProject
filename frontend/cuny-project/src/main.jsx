@@ -11,6 +11,8 @@ import Create_Job from './components/staff/createJob.jsx';
 import Start from './components/Start.jsx'
 import StudentLogin from './components/StudentLogin.jsx';
 import StaffLogin from './components/StaffLogin.jsx';
+import Register from './components/Register.jsx';
+import AdditionalInformation from './components/AdditionalInformation.jsx'
 import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom'
 
 
@@ -21,6 +23,9 @@ const router = createBrowserRouter(
 
           <Route path="/studentLogin" element={<StudentLogin />} />
           <Route path="/staffLogin" element={<StaffLogin />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/additionalInformation" element={<AdditionalInformation />} />
+
 
           <Route path='/student/studentHome'element = {<Home/>}/>
           <Route path='/student/studentProfile' element = {<Student_Profile/>}/>
@@ -28,7 +33,7 @@ const router = createBrowserRouter(
 
           <Route path='/staff/staffProfile' element = {<Staff_Profile/>}/>
           <Route path='/staff/staffInternships' element = {<Internships2/>}/>
-          <Route path='/staff/createJob' element={<Create_Job/>}/>
+          <Route path='/staff/createJob' element={<Create_Job/>}/>     
 
 
           {/* <Route

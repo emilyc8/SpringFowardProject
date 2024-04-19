@@ -37,7 +37,7 @@ function StaffLogin() {
           </div>
           <Link to="/student/studentHome"><button type="submit" className="submit-button">Sign In</button></Link>
           <p className="account-text">
-            Don’t have an account? <a href="/register">Create one</a>
+          Don’t have an account? <Link to="/register">Create one</Link>
           </p>
         </form>
       </div>

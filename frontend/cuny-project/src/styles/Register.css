@@ -1,0 +1,95 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap");
+.register-container {
+  max-width: 500px;
+  margin: auto;
+  padding-top: 50px;
+}
+
+.welcome-text1 {
+  color: rgb(0, 94, 255);
+  font-family: "League Spartan", sans-serif;
+  text-align: center;
+  margin-bottom: 20px; /* Provide space below the welcome text */
+}
+
+.sign-in1 {
+  color: gray;
+  font-family: "League Spartan", sans-serif;
+  text-align: center;
+  margin-bottom: 40px; /* Provide space below the sign-in text */
+}
+
+.input-group {
+ 
+  margin-top: 50px; /* Push all input elements down by 100px */
+}
+
+.input-group input,
+.input-group-birthday input {
+  width: 100%;  
+  padding: 8px;  
+  font-size: 16px;  
+  border: 1px solid #ccc; 
+  border-radius: 5px;
+}
+
+.input-group-birthday {
+  display: flex;
+  gap: 10px;
+}
+
+.input-group-birthday input {
+  flex: 1;
+}
+
+.submit-button1 {
+  background-color: #fff;
+  background-color: rgba(255,255,255,0.5);
+  position: absolute;
+  left: 67%;
+  padding: 10px;
+  color: black;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.submit-button1:hover{
+  
+  background-color: rgb(0, 94, 255);
+  color: white;
+    
+}
+
+.account-text1 {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.navigation-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px; 
+}
+
+.navigation-button1,
+.navigation-button2 {
+  background-color: rgba(255,255,255,0.5);
+  padding: 10px 20px; 
+  color: black;
+  border: 1px solid #ccc; 
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.navigation-button:hover {
+  background-color: rgb(0, 94, 255);
+  color: white;
+}
+
+body{
+ /* background-color: #fff; for my eyes im commenting this out and making everything black*/ 
+}
+
+
