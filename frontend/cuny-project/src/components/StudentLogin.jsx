@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import '../styles/StudentLogin.css'; 
-import { Link } from 'react-router-dom';
+import { Link, useNavigate} from 'react-router-dom';
 import axios from 'axios'
 
 function Login() {
@@ -11,6 +11,7 @@ function Login() {
 
   const [error, setError] = useState('');
 
+
   const handleChange = (event) => {
     const { name, value } = event.target;
     setCredentials(prevState => ({
@@ -19,23 +20,24 @@ function Login() {
     }));
   };
 
+  const navigate = useNavigate();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError(''); // Clear any existing errors
     try {
         const response = await axios.post('http://127.0.0.1:5000/login', credentials);
-        console.log('Login successful:', response.data);
-        // localStorage.setItem('type', response.data.type);  
-        // Redirect the user to another page or update the state to indicate successful login
+        localStorage.setItem('userId', response.data.userId); 
+        console.log('Login Response:', response.data)
+        navigate('/student/studentProfile');
+        
     } catch (error) {
         if (error.response) {
-        // Handle error messages from the server
-        console.error('Login error:', error.response.data);
-        setError(error.response.data.message);
+          console.error('Login error:', error.response.data);
+          setError(error.response.data.message);
         } else {
-        // Handle network errors or other unexpected errors
-        console.error('Error during login:', error.message);
-        setError('Error during login, please try again');
+          console.error('Error during login:', error.message);
+          setError('Error during login, please try again');
         }
     }
   };

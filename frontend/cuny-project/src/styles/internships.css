@@ -164,6 +164,7 @@ button:focus.job{
 }
 
 .under .job .info{
+    float: left;
     display: flex;
     flex-direction: row;
     padding: 0px;
@@ -175,17 +176,25 @@ button:focus.job{
     font-weight: 400;
     padding: 0px;
     margin: 0px;
+    text-align: left;
+    width: fit-content;
+    margin-right: 230px;
 
 }
 
 .under .job .info .date{
-    margin-left: 480px;
+    float: right;
+    text-align: right;
     margin-top: 0px;
+    margin-bottom: 0;
 }
 
 .under .job .info p{
     font-weight: 400;
     font-size: 16px;
+    float: right;
+    justify-self: right;
+    display: flex;
 
 }
 
@@ -249,7 +258,7 @@ button:focus.job{
 
 .under .uWrap{
     display: flex;
-    flex-direction: row;
+    flex-direction: column-reverse;
 }
 
 .under .openWrap,
@@ -258,11 +267,17 @@ button:focus.job{
     position: absolute;
     right: 0;
     margin-right: 1rem;
+    top: 240px;
 }
 
 .openWrapS{
     margin-top: 0px;
     
+}
+
+h1.title{
+    margin-left: 0;
+
 }
 
 .under .open, 

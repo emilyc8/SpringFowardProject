@@ -3,8 +3,9 @@ import '../../styles/internships.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLessThan } from "@fortawesome/free-solid-svg-icons";
 import Load from '../postLoad';
-import { useState } from "react";
+import { useState, useEffect} from "react";
 import {slice, concat } from 'lodash';
+import axios from "axios";
 
 
 const LENGTH = 12;
@@ -13,26 +14,31 @@ const LIMIT = 3;
 
 export default function Internships(){
 
-    const name = "Full Name";
+    const [active, setActive] = useState("two")
+    const [internships, setInternships] = useState([]);
+    const [savedInternships, setSavedInternships] = useState([]);
+    const [user, setUser] = useState('');
 
-    const [active, setActive] = useState("one")
-    
-    const [showMore,setShowMore] = useState(true);
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const userId = localStorage.getItem('userId');
+                const response3  = await axios.get(`http://127.0.0.1:5000/home?userId=${userId}`, userId);
+                const response = await axios.get(`http://127.0.0.1:5000/internships?`);
+                const response2 = await axios.get(`http://127.0.0.1:5000/savedInternships?userId=${userId}`);
+                setSavedInternships(response2.data); 
+                console.log(response2.data)
+                setInternships(response.data);
+                console.log(response.data);
+                setUser(response3.data.user);
+                
+            } catch (error) {
+                console.error('Error fetching internships:', error);
+            }
+        };
 
-    //variables to create an array of the same div
-    const [list,setList] = useState(slice(DATA, 0, LIMIT))
-    const [list2,setList2] = useState(slice(DATA, 0, LIMIT))
-    const [index,setIndex] = useState(LIMIT);
-    const loadMore = () =>{
-        const newIndex = index + LIMIT;
-        const newShowMore = newIndex < (LENGTH - 1);
-        const newList = concat(list, slice(DATA, index, newIndex));
-        if (active) {
-            setIndex(newIndex);
-            setList(newList);
-            setShowMore(newShowMore);
-        }
-    }
+        fetchData();
+    }, []);
 
     return(
         <div className="internships">
@@ -49,7 +55,7 @@ export default function Internships(){
                     <div className="sidebar">
                         <div className="profile">
                             <img className="pfp" src="../pfp.png"/>
-                            <span>{name}</span>
+                            <span>{user.firstName + " " + user.lastName}</span>
                         </div>
                         <div className="selection">
                             <Link to="/student/studentProfile">
@@ -96,10 +102,14 @@ export default function Internships(){
                         </div>
                     </div>
                     <div className="under">
-                        {active === "one" && list.map(()=><Load type = "type1"/>)}
-                        {active === "two" && list.map(()=><Load type = "type1"/>)}
-                        {active === "three" && list2.map(() =><Load type = "type2"/>)}
-                        {active === "two" && showMore && <button className="loadMore" onClick={loadMore}> Load More </button>}
+                        {active === "two" && internships.map(internship => (
+                                <Load key={internship._id} type="type1" internship={internship}/>
+                            ))}
+                        
+                        {active === "three" && savedInternships.map(savedInternship => (
+                                <Load key={savedInternship._id} type="type3" savedInternship={savedInternship} />
+                            ))}
+                        
                     </div>
                 </div>
             </div>

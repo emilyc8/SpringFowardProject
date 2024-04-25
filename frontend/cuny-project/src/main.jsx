@@ -14,6 +14,8 @@ import StaffLogin from './components/StaffLogin.jsx';
 import Register from './components/Register.jsx';
 import StaffRegister from './components/staffRegister.jsx'
 import AdditionalInformation from './components/AdditionalInformation.jsx'
+import StaffHome from './components/staff/staffHome.jsx'
+import Other_Profile from './components/student/otherProfile.jsx'
 import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom'
 
 
@@ -33,15 +35,15 @@ const router = createBrowserRouter(
           <Route path='/student/studentProfile' element = {<Student_Profile/>}/>
           <Route path='/student/studentInternships' element = {<Internships/>}/>
 
+          <Route path='/staff/staffHome'element = {<StaffHome/>}/>
           <Route path='/staff/staffProfile' element = {<Staff_Profile/>}/>
           <Route path='/staff/staffInternships' element = {<Internships2/>}/>
           <Route path='/staff/createJob' element={<Create_Job/>}/>     
 
 
-          {/* <Route
-            path = '/student/otherProfile'
-            element={<Other_Profile/>}
-          /> */}
+          <Route
+            path="/profile/:userId" element={<Other_Profile/>} 
+          />
 
       </Route>
   )

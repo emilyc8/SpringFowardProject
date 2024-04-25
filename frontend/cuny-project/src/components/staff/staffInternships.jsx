@@ -3,32 +3,38 @@ import '../../styles/internships.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faLessThan } from "@fortawesome/free-solid-svg-icons";
 import Load from "../postLoad";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {slice, concat, } from 'lodash';
+import axios from "axios";
 
-
-const LENGTH = 12;
-const DATA = [ ...Array(LENGTH).keys() ];
-const LIMIT = 3;
 
 export default function Internships2(){
     const [active, setActive] = useState("all")
     
     const [showMore,setShowMore] = useState(true);
-    const [list,setList] = useState(slice(DATA, 0, LIMIT))
-    const [list2,setList2] = useState(slice(DATA, 0, LIMIT))
-    const [index,setIndex] = useState(LIMIT);
+    const [internships, setInternships] = useState([]);
+    // const [index,setIndex] = useState(1);
 
-    const loadMore = () =>{
-        const newIndex = index + LIMIT;
-        const newShowMore = newIndex < (LENGTH - 1);
-        const newList = concat(list, slice(DATA, index, newIndex));
-        if (active) {
-            setIndex(newIndex);
-            setList(newList);
-            setShowMore(newShowMore);
-        }
-    }
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get(`http://127.0.0.1:5000/internships?`);
+                setInternships(response.data);
+                console.log(response.data);
+            } catch (error) {
+                console.error('Error fetching internships:', error);
+            }
+        };
+
+        fetchData();
+    }, []);
+
+    // const loadMore = () => {
+    //     const newIndex = index + 1;
+    //     const newShowMore = newIndex < internships.length;
+    //     setIndex(newIndex);
+    //     setShowMore(newShowMore);
+    // };
 
     return(
         <div className="internships">
@@ -80,17 +86,23 @@ export default function Internships2(){
                             Filters
                         </div>
                         <div className="pick">
-                            <div className="all"></div>
+                            <div className="all">
                                 <button onClick={() => setActive("all")}>ALL</button>
+                            </div>
                             <div className="posted">
                                 <button onClick={() => setActive("posted")}>POSTED</button>
                             </div>
                         </div>
                     </div>
                     <div className="under">
-                        {active === "all" && list.map(()=><Load type = "type1"/>)}
-                        {active === "posted" && list2.map(() =><Load type = "type3"/>)}
-                        {active === "all" && showMore && <button className="loadMore" onClick={loadMore}> Load More </button>}
+                        {active === "all" && internships.map(internship => (
+                            <Load key={internship._id} type="type1" internship={internship} />
+                        ))}
+                        {/* {active === "posted" && internships.map(internship => (
+                            <Load key={internship._id} type="type3" internship={internship} />
+                        ))} */}
+                        {/* {active === "posted" && list2.map(() =><Load type = "type3"/>)} */}
+                        {/* {active === "all" && showMore && <button className="loadMore" onClick={loadMore}> Load More </button>} */}
                     </div>
                 </div>
             </div>

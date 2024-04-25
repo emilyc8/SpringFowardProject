@@ -4,19 +4,14 @@ import axios from "axios";
 import '../../styles/home.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus, faLessThan } from "@fortawesome/free-solid-svg-icons";
-import {faComment} from "@fortawesome/free-regular-svg-icons"
-import LikeButton from '../likeButton'  
 import PostOverlay from '../postOverlay'
 import ConnectButton from '../connectButton';
 import UserPosts from "../userPost";
-import ReactLoading from 'react-loading';
-import Other_Profile from "./otherProfile";
 
-function Home(){
+function StaffHome(){
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
     const [user, setUser] = useState('');
-    const [users, setUsers] = useState([]);
 
     const [userPosts, setUserPosts] = useState([]);
     useEffect(() => {
@@ -25,13 +20,10 @@ function Home(){
                 const userId = localStorage.getItem('userId');
                 const response  = await axios.get(`http://127.0.0.1:5000/home?userId=${userId}`, userId);
                 const response2 = await axios.get('http://127.0.0.1:5000/posts');
-                
-                const response3 = await axios.get('http://127.0.0.1:5000/users');
                 console.log('User info:', response.data);
                 console.log(response2.data)
                 setUser(response.data.user);
-                setUsers(response3.data)
-                console.log(response3.data)
+
                 setUserPosts(response2.data);
                 setLoading(false);
 
@@ -50,17 +42,10 @@ function Home(){
         
         <div className="feed" style={feedStyle}>
             {loading ? (
-                <div className="loading">
-                    <ReactLoading
-                        type={"balls"}
-                        color={"#00000"}
-                        height={50}
-                        width={50}
-                        />
-                </div>
+                <p>Loading...</p>
             ) : error ? (
                 <p>Error: {error}</p>
-            ) : user && users? (
+            ) : user ? (
                 <>
                 <PostOverlay isOpen={isOn} onClose={() => setIsOn(!isOn)}/>
                 <div class="sticky topbar">
@@ -79,17 +64,17 @@ function Home(){
                                 <span>{user.firstName + " " + user.lastName}</span>
                             </div>
                             <div className="selection">
-                                <Link to="/student/studentProfile">
+                                <Link to="/staff/staffProfile">
                                     <button className="Profile"><img src="../profile_logo.png"></img>
                                     <span>Profile</span>
                                     </button>
                             </Link> 
-                            <Link to="/student/studentHome">
+                            <Link to="/staff/staffHome">
                                     <button className="Home"><img src="../home_logo.png"></img>
                                         <span>Home</span>
                                     </button>
                                 </Link>
-                                <Link to="/student/studentInternships">
+                                <Link to="/staff/staffInternships">
                                     <button className="Internships"><img src="../inter_logo.png"></img>
                                         <span>Internships</span>
                                     </button>
@@ -113,23 +98,30 @@ function Home(){
                     <div className="sticky rightbar">
                         <div className="recommendations">
                             <h3>Recommended Users</h3>
-                            {users.slice(0, 3).map(user => (
-                                <div key={user.userID} className="person">
-                                    <Link to={`/profile/${user.userID}`}>
-                                        {/* <Other_Profile otherUserId={user.userID}></Other_Profile> */}
-                                        <img className="pfp" src="../pfp.png" alt="Profile"/>
-                                    </Link>
-                                    <div className="info">
-                                        <p>{user.firstName + " " + user.lastName}</p>
-                                        <p>School - {user.Details.school}</p>
-                                        {/* Add other user information here */}
-                                    </div>
-                                    {/* Add connect button component here */}
-                                    <ConnectButton className="connect"/>
+                            <div className="person">
+                                <img className="pfp" src="../pfp.png"/>
+                                <div className="info">
+                                    <p>Name - {user.type}</p>
+                                    <p2>{user.school}</p2>
                                 </div>
-                                
-                            ))}
-
+                                <ConnectButton className="connect"/>
+                            </div>
+                            <div className="person">
+                                <img className="pfp" src="../pfp.png"/>
+                                <div className="info">
+                                    <p>Name - {user.type}</p>
+                                    <p2>{user.school}</p2>
+                                </div>
+                                <ConnectButton className="connect"/>
+                            </div>
+                            <div className="person">
+                                <img className="pfp" src="../pfp.png"/>
+                                <div className="info">
+                                    <p>Name - {user.type}</p>
+                                    <p2>{user.school}</p2>
+                                </div>
+                                <ConnectButton className="connect"/>
+                            </div>
                             
                         </div>
                     </div>
@@ -141,4 +133,4 @@ function Home(){
         </div>
     );
 }
-export default Home;
+export default StaffHome;

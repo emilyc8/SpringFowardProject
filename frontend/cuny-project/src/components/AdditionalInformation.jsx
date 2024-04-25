@@ -39,9 +39,16 @@ function AdditionalInformation() {
     major:'',
     degree:'',
     skills:[],
+    experience:[{
+      company: '',
+      position: '',
+      startDate: '',
+      endDate: ''
+    }]
   })
 
   const [skills, setSkills] = useState('')
+  const [experience, setExperiences]= useState('')
 
   const [error, setError] = useState('');
   const navigate = useNavigate();
@@ -70,6 +77,32 @@ function AdditionalInformation() {
       skills: prevDetails.skills.filter((_, i) => i !== index)
     }));
   };
+  const handleExperienceChange = (index, field, value) => {
+    setDetails(prevDetails => {
+        const newExperience = [...prevDetails.experience];
+        newExperience[index][field] = value;
+        return {
+            ...prevDetails,
+            experience: newExperience
+        };
+    });
+  };
+
+  const addExperience = () => {
+    setDetails(prevDetails => ({
+        ...prevDetails,
+        experience: [
+            ...prevDetails.experience,
+            {
+                company: '',
+                position: '',
+                startDate: '',
+                endDate: ''
+            }
+        ]
+    }));
+  };
+
 
   const userId = localStorage.getItem('userId');
   const handleSubmit = async (e) => {
@@ -135,6 +168,38 @@ function AdditionalInformation() {
               </li>
               ))}
           </ul>
+        </div>
+        <div className="experience">
+            {details.experience.map((exp, index) => (
+                  <div key={index} className='fields'>
+                    <p className='input-label'>ADD EXPERIENCE</p>
+                      <input
+                          type="text"
+                          value={exp.company}
+                          onChange={(e) => handleExperienceChange(index, 'company', e.target.value)}
+                          placeholder="Company"
+                      />
+                      <input
+                          type="text"
+                          value={exp.position}
+                          onChange={(e) => handleExperienceChange(index, 'position', e.target.value)}
+                          placeholder="Position"
+                      />
+                      <input
+                          type="text"
+                          value={exp.startDate}
+                          onChange={(e) => handleExperienceChange(index, 'startDate', e.target.value)}
+                          placeholder="Start Date MM/DD/YYYY"
+                      />
+                      <input
+                          type="text"
+                          value={exp.endDate}
+                          onChange={(e) => handleExperienceChange(index, 'endDate', e.target.value)}
+                          placeholder="End Date MM/DD/YYYY"
+                      />
+                  </div>
+              ))}
+              <button onClick={addExperience}>Add Experience</button>
         </div>
         {error && <div style={{ color: 'red' }}>{error}</div>}
         <button type="submit" className="done-button">Done</button>

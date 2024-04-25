@@ -28,6 +28,7 @@
     flex-direction: column;
     height: 100%;
     scroll-behavior: smooth;
+    overflow-x:inherit;
 }
 
 .main{
@@ -39,9 +40,6 @@
 .topbar{
     z-index: 1;
 }
-.separation{
-    z-index: 1;
-}
 
 .display{
     grid-column-start: 2;
@@ -50,6 +48,9 @@
     column-gap: 10px;
     display: flex;
     flex-direction: column;
+    width: 1100px;
+    margin: 0;
+    padding: 0;
 
 }
 
@@ -253,3 +254,179 @@ button.footer {
     font-size: 16px;
 }
 
+/* EDIT PROFILE CARD */
+
+.student .card .back{
+    position: absolute;
+    width: 105%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.189);
+    z-index: 9;
+    overflow-y: none;
+}
+
+.student .card{
+    position: absolute;
+    justify-self: center;
+    z-index: 7;
+    background: white;
+    margin-left: 21%;
+    width: 730px;
+    height: fit-content;
+    min-height: 200px;
+    border-radius: 10px;
+    padding: 20px;
+    padding-left: 30px;
+    margin-top: 8%;
+    
+
+}
+
+.student .card .close{
+    align-self:flex-end;
+    font-size: 20px;
+    margin-left: 0;
+
+}
+
+.student .card-top button.save{
+    width:100px;
+    height: 40px;
+}
+
+.student button.close{
+    font-weight: 300;
+    padding: 5px;
+    padding-left: 8px;
+    padding-right: 8px;
+    border-radius: 90px;
+    background: none;
+}
+.student .close button:hover{
+    background-color: #e4e4e4;
+    border: 1px solid #d0d0d0;
+}
+
+.student .card-top{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    justify-content: space-between;
+    border-bottom: 1px gainsboro solid;
+    margin-top: 10px;
+    padding-bottom: 10px;
+}
+
+.card-top h3{
+    margin: 0;
+    padding-top: 10px;
+    text-align: left;
+}
+
+.student .card-top p{
+    margin-left: 30px;
+    font-size: 16px;
+}
+
+.card TextareaAutosize::placeholder{
+    margin-top: 0;
+    font-size: 11px;
+    vertical-align: top;
+    margin-right: 10px;
+} 
+
+.card-bio textarea{
+    border: 1px black;
+    resize: none;
+    width: 700px;
+    padding: 10px;
+    overflow: hidden;
+}
+
+.card .area:active,
+.card .area:focus,
+.card .area:active:focus:after{
+    border: none;
+    outline: none;
+}
+
+.card-image{
+    height: 100px;
+}
+
+.card-image .image-holder{
+    background-color: gray;
+    padding: 10px;
+    justify-content: center;
+    display: flex;
+    height: 130px;
+}
+
+.image-holder input{
+    height: 130px;
+    /* border: 1px solid red; */
+    width: 700px;
+}
+
+.image-holder input[type="file"] {
+    height: 130px;
+    z-index: 1;
+    display: transparent;
+    /* opacity: 0; */
+    /* display: none; */
+}
+
+input::file-selector-button{
+    background: transparent;
+    color: transparent;
+    box-shadow: none;
+    border: none;
+}
+
+
+.fileU svg{
+    height: 35px;
+    color: rgb(255, 255, 255);
+    align-self: center;
+    padding: 5px;
+}
+.fileU{
+    background: rgba(0, 0, 0, 0.258);
+    height: 45px;
+    width: 45px;
+    display: flex;
+    padding: 10px;
+    border-radius: 40px;
+    align-content: center;
+    position: absolute;
+    margin-top: 20px;
+    z-index: 0;
+}
+
+
+.profile-image{
+    border: 1px solid black;
+    height: 80px;
+    width: 80px;
+    margin-left: 30px;
+    display: flex;
+    padding: 0;
+    border-radius: 60px;
+    background: gray;
+
+}
+
+.profile-image .fileU{
+    margin-top: 0;
+    height: 60px;
+    width: 60px;
+    align-content: center;
+    flex-wrap: wrap;
+    position:fixed;
+}
+
+.profile-image .fileU svg{
+    align-self: center;
+    margin-left: 15px;
+    height: 25px;
+}

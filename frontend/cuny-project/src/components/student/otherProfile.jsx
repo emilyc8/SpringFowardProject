@@ -1,14 +1,19 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import "../../styles/studentProfile.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretDown, faLessThan} from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Edit_Profile from "./editProfile";
 
-function Student_Profile(){
+
+function Other_Profile(){
+    const { userId } = useParams();
+    const otherUserId = userId
+
+    // console.log(otherUserId);
 
     const [user, setUser] = useState(null);
+    const [otherUser, setOtherUser] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
     const [userPosts, setUserPosts] = useState([]);
@@ -18,12 +23,19 @@ function Student_Profile(){
         const fetchUserInfo = async () => {
             try{
                 const userId = localStorage.getItem('userId');
-                const response  = await axios.get(`http://127.0.0.1:5000/profile?userId=${userId}`, userId);
-                const response2 = await axios.get(`http://127.0.0.1:5000/posts?userId=${userId}`);
-                console.log('User info:', response.data);
-                console.log(response2.data)
-                setUser(response.data.user);
-                setUserPosts(response2.data);
+                const user_response  = await axios.get(`http://127.0.0.1:5000/profile?userId=${userId}`, userId);
+                console.log('User info:', user_response.data);
+                setUser(user_response.data.user);
+
+                const other_response  = await axios.get(`http://127.0.0.1:5000/profile?userId=${otherUserId}`, otherUserId);
+                console.log('Other User:' , other_response.data);
+                setOtherUser(other_response.data.user);
+
+                const other_response2 = await axios.get(`http://127.0.0.1:5000/posts?userId=${otherUserId}`);
+
+                
+        
+                setUserPosts(other_response2.data);
                 setLoading(false);
             } catch (error) {
                 setError(error.message);
@@ -31,7 +43,7 @@ function Student_Profile(){
             }
         };
         fetchUserInfo();
-    }, [])
+    }, [otherUserId])
 
 
 
@@ -45,9 +57,8 @@ function Student_Profile(){
                 <p>Loading...</p>
             ) : error ? (
                 <p>Error: {error}</p>
-            ) : user ? (
+            ) : user || otherUser? (
                 <>
-                    <Edit_Profile isOpen={isOn} onClose={() => setIsOn(!isOn)}/>
                     <div class="sticky topbar">
                       {/* insert image logo when created */}
                       <div className="logo1">
@@ -95,16 +106,11 @@ function Student_Profile(){
                                  </div>
                                  <div className="bio">
                                      <div className="info">
-                                         <p>{user.firstName + " " + user.lastName}</p>
-                                         <p>{user.Details.school} - {user.type}</p>
+                                         <p>{otherUser  .firstName + " " + otherUser.lastName}</p>
+                                         <p>{otherUser.Details.school} - {otherUser.type}</p>
                                      </div>
                                      <div className="bioText">
                                          {/* <p>{text}</p> */}
-                                     </div>
-                                     <div className="btm">
-                                         <button onClick={() => setIsOn(!isOn)} className="edit">
-                                             Edit Profile
-                                         </button>
                                      </div>
                                  </div>
                              </div>
@@ -118,7 +124,7 @@ function Student_Profile(){
                                                     <div className="ps1" key={post._id}>
                                                         {post.postType === "poll" ? (
                                                             <>
-                                                                <p>You posted this | {new Date(post.postTime).toLocaleString()}</p>
+                                                                <p>{otherUser.firstName} posted this | {new Date(post.postTime).toLocaleString()}</p>
                                                                 <p>{post.postContent.question}</p>
                                                                 <ul>
                                                                     {post.postContent.options.map((option, index) => (
@@ -128,22 +134,23 @@ function Student_Profile(){
                                                             </>
                                                         ) : (
                                                             <>
-                                                                <p>You posted this | {new Date(post.postTime).toLocaleString()}</p>
+                                                                <p>{otherUser.firstName} posted this | {new Date(post.postTime).toLocaleString()}</p>
                                                                 <p>{post.postContent}</p>
                                                             </>
                                                         )}
                                                     </div>
                                                 ))
                                             ) : (
-                                                <p>No posts found. Create your first post!</p>
+                                                <p>No posts found</p>
                                             )}
                                         </div>
                                  </div>
                                  <div className="experience">
                                      <h1>Experience</h1>
                                      <div className="elist">
-                                        {user.Details.experience && user.Details.experience.length > 0 ? (
-                                            user.Details.experience.map((exp, index) => (
+                                     <div className="elist">
+                                        {otherUser.Details.experience && otherUser.Details.experience.length > 0 ? (
+                                            otherUser.Details.experience.map((exp, index) => (
                                                 <div key={index} className="experience-item">
                                                     <p>{exp.company}</p>
                                                     <p>{exp.position}</p>
@@ -154,19 +161,20 @@ function Student_Profile(){
                                             <p>None listed</p>
                                         )}
                                      </div>
+                                     </div>
                                  </div>
                                  <div className="education">
                                      <h1>Education</h1>
                                      <div className="ewrap">
                                          {/* <img className="school" src="../JJC_logo.png" height={50} width={50}></img> */}
-                                         <p>{user.Details.school + " - " + user.Details.degree}</p>
+                                         <p>{otherUser.Details.school + " - " + otherUser.Details.degree}</p>
                                      </div>
                                  </div>
                                  <div className="skills">
                                      <h1>Skills</h1>
                                      <div className="skill_list">
                                          <ul className="skill_list">
-                                         {user.Details.skills.map((skill, index) => (
+                                         {otherUser.Details.skills.map((skill, index) => (
                                                 <li key={index}>{skill}</li>
                                             ))}
                                          </ul>
@@ -182,4 +190,4 @@ function Student_Profile(){
         </div>
     );
 }
-export default Student_Profile
+export default Other_Profile

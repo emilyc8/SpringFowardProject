@@ -225,12 +225,9 @@
     grid-column-start: 2;
     grid-row-start: 1;
     width: 750px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
 }
 
-.posts .single{
+.posts .single-post{
     padding: 20px;
     border: 1px solid rgb(160, 160, 160);
     border-radius: 5px;
@@ -238,10 +235,16 @@
 }
 
 
-.posts .top{
+.user-posts .post-info{
     display: flex;
     flex-direction: row;
 
+}
+
+.user-posts{
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 10px;
 }
 
 .feed .top .pfp{
@@ -249,7 +252,7 @@
     height: 50px;
 }
 
-.posts .info{
+.single-post .info{
     line-height: 1px;
     text-align: left;
     margin-left: 20px;
@@ -257,7 +260,7 @@
     padding: 10px;
 }
 
-.posts .postText{
+.single-post .post-content{
     text-align: left;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -273,11 +276,11 @@
 
 }
 
-.posts .image img{
+.user-posts .image img{
     width: 710px;
 }
 
-.posts button {
+.user-posts button {
     display: flex;
     flex-direction: row;
     width: 90px;
@@ -291,11 +294,11 @@
 
 }
 
-.posts button span{
+.user-posts button span{
     padding-top: 3px;
 }
 
-.posts  button:hover{
+.user-posts  button:hover{
     color: rgb(6, 89, 255);
     border: none;
 }
@@ -382,7 +385,7 @@
     font-size: 12px;
 }
 
-.feed .back{
+.back{
     position: absolute;
     width: 105%;
     height: 100%;
@@ -531,4 +534,8 @@ textarea{
     font-size: 16px;
 }
 
-
+.loading{
+    margin-left: 50%;
+    margin-top: 20%;
+    /* background: rgb(0, 0, 0); */
+}

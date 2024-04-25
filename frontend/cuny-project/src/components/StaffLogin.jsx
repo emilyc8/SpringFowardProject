@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import '../styles/StaffLogin.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 
@@ -12,6 +12,7 @@ function StaffLogin() {
   });
 
   const [error, setError] = useState('');
+  const navigate = useNavigate();
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -26,9 +27,10 @@ function StaffLogin() {
     setError(''); // Clear any existing errors
     try {
         const response = await axios.post('http://127.0.0.1:5000/stafflogin', credentials);
+        localStorage.setItem('userId', response.data.userId); 
         console.log('Login successful:', response.data);
-        // localStorage.setItem('type', response.data.type);  
-        // Redirect the user to another page or update the state to indicate successful login
+        navigate('/staff/staffProfile');
+
     } catch (error) {
         if (error.response) {
         // Handle error messages from the server

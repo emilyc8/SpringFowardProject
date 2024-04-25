@@ -204,3 +204,28 @@ button.remove:focus{
   color: white;
 }
 
+.additional-info-container .experience{
+  border: none;
+  display: flex;
+  border-radius: 0;
+  padding: 0;
+}
+
+.additional-info-container .experience p{
+  color: black;
+}
+
+.additional-info-container .fields{
+  display: flex;
+  flex-direction: column;
+}
+
+.fields input{
+  width: 100%;
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+
+}
