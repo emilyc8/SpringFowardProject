@@ -72,7 +72,7 @@ function Staff_Profile(){
                                         <span>Internships</span>
                                     </button>
                                 </Link>
-                                <Link>
+                                <Link to="/chatbot">
                                 <button className="Chatbot"><img src="../logochat.png"></img>
                                     <span>Chatbot</span>
                                 </button>
