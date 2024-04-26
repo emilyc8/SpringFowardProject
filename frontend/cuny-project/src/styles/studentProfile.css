@@ -168,6 +168,10 @@
     text-align: left;
 }
 
+p{
+    color: black;
+}
+
 button.footer {
     background: #ffff;
     font-size: 16px;
@@ -405,6 +409,14 @@ input::file-selector-button{
     position: absolute;
     margin-top: 20px;
     z-index: 0;
+}
+
+h1{
+    color: black;
+}
+
+li{
+    color: black;
 }
 
 
