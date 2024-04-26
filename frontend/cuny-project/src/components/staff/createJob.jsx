@@ -20,7 +20,7 @@ function Create_Job(){
         responsibilities: '',
         skills: [],
         applicationType: '',
-        postTime: currentDate.toISOString().split('T')[0].split('-').reverse().join('/')
+        postTime:  new Date().toISOString()
     });
 
     const [skills, setSkills] = useState('')
