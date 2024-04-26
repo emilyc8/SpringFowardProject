@@ -69,6 +69,11 @@ export default function Internships2(){
                                     <span>Internships</span>
                                 </button>
                             </Link>
+                            <Link>
+                                <button className="Chatbot"><img src="../logochat.png"></img>
+                                    <span>Chatbot</span>
+                                </button>
+                            </Link>
                         </div>
                         <div className="logout">
                             <Link to="/">
