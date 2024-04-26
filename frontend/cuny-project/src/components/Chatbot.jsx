@@ -35,7 +35,7 @@ const Chatbot = () => {
         <div>
             <h1>Welcome to the Chatbot!</h1>
             <p>This is a simple chatbot interface.</p>
-            <div id="chat-container" ref={chatContainerRef} style={{ maxHeight: '500px', overflowY: 'auto' }}>
+            <div id="chat-container" ref={chatContainerRef} style={{ maxHeight: '500px', overflowY: 'auto', borderColor: 'red', border: 'solid' }}>
                 <div id="chat-content">
                     {messages.map((message, index) => (
                         <div key={index} className={`message ${message.sender}-message`}>
