@@ -185,6 +185,11 @@ button:focus.job{
 
 }
 
+
+span{
+    color: black;
+}
+
 .under .job .info .date{
     float: right;
     text-align: right;
