@@ -12,7 +12,7 @@ secure_filename = secure_filename(filename)
 app = Flask(__name__)
 cors = CORS(app, resources={r"/*": {"origins": "*"}})
 
-uri = "mongodb+srv://testuser:RkorB87gjockQt11@userdb.kvfsed1.mongodb.net/?retryWrites=true&w=majority&appName=USERDB"
+uri = "mongodb+srv://testuser:cys9qijPpt0fhzW7@userdb.kvfsed1.mongodb.net/?retryWrites=true&w=majority&appName=USERDB"
 client = MongoClient(uri)
 
 @app.route("/register", methods = ['POST'])

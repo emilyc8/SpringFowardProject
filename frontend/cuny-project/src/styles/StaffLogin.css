@@ -7,7 +7,7 @@
   }
 
   .input-group.input-group-username input {
-    width: calc(100% - 20px); /* Adjust the width as needed */
+    width: calc(100% - 20px); 
     padding: 10px;
     border: 1px solid #ced4da;
     border-radius: 4px;
@@ -15,19 +15,19 @@
   }
 
   .input-group1 input {
-    width: 300%;  /* Adjust the width as needed, 100% makes it fill the container */
-    padding: 10px;  /* Adjust padding to make the input taller */
-    font-size: 16px;  /* Adjust font size for better visibility */
-    border: 1px solid #ccc;  /* Example border, modify as needed */
-    border-radius: 5px;  /* Rounded corners for aesthetics */
+    width: 300%;  
+    padding: 10px; 
+    font-size: 16px;  
+    border: 1px solid #ccc;  
+    border-radius: 5px;  
   }
   
   .input-group2 input {
-    width: 300%;  /* Adjust the width as needed, 100% makes it fill the container */
-    padding: 10px;  /* Adjust padding to make the input taller */
-    font-size: 16px;  /* Adjust font size for better visibility */
-    border: 1px solid #ccc;  /* Example border, modify as needed */
-    border-radius: 5px;  /* Rounded corners for aesthetics */
+    width: 300%;  
+    padding: 10px;  
+    font-size: 16px;  
+    border: 1px solid #ccc;  
+    border-radius: 5px;  
   }
 
 .input-group1{
@@ -42,7 +42,7 @@
     top: 50%;
 }
 
-.submit-button{ /* sign in buttom */
+.submit-button{ 
     position: absolute;
     left: 69%;
     top: 53%;

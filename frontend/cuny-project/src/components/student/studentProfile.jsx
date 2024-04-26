@@ -79,6 +79,11 @@ function Student_Profile(){
                                              <span>Internships</span>
                                          </button>
                                      </Link>
+                                     <Link to = "/chatbot">
+                                <button className="Chatbot"><img src="../logochat.png"></img>
+                                    <span>Chatbot</span>
+                                </button>
+                            </Link>
                                  </div>
                                  <div className="logout">
                                      <Link to="/">

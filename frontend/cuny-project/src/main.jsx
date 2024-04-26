@@ -16,6 +16,7 @@ import StaffRegister from './components/staffRegister.jsx'
 import AdditionalInformation from './components/AdditionalInformation.jsx'
 import StaffHome from './components/staff/staffHome.jsx'
 import Other_Profile from './components/student/otherProfile.jsx'
+import Chatbot from './components/Chatbot.jsx';
 import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom'
 
 
@@ -29,6 +30,7 @@ const router = createBrowserRouter(
           <Route path="/register" element={<Register />} />
           <Route path="/staffRegister" element={<StaffRegister />} />
           <Route path="/additionalInformation" element={<AdditionalInformation />} />
+          <Route path="/chatbot" element={<Chatbot />} />
 
 
           <Route path='/student/studentHome'element = {<Home/>}/>

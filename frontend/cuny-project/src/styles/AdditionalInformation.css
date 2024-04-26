@@ -10,14 +10,14 @@
   color: rgb(0, 94, 255);
   font-family: "League Spartan", sans-serif;
   text-align: center;
-  margin-bottom: 20px; /* Provide space below the welcome text */
+  margin-bottom: 20px; 
 }
 
 .sign-in1 {
   color: gray;
   font-family: "League Spartan", sans-serif;
   text-align: center;
-  margin-bottom: 40px; /* Provide space below the sign-in text */
+  margin-bottom: 40px; 
 }
 
 .input-group {
@@ -119,17 +119,35 @@
 
 
 .input-group select {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    background-color: rgb(255, 255, 255); 
-    background-image: url('data:image/svg+xml;utf8,<svg fill="black" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
-    /* drop down arrow image */
-    background-repeat: no-repeat;
-    background-position: right 10px top 50%;
-    cursor: pointer;
-    padding-right: 30px; 
-  }
+  background-color: white; 
+  color: black; 
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="black" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>'); /* Custom arrow */
+  background-repeat: no-repeat;
+  background-position: right 10px top 50%;
+  padding-right: 30px;
+}
+
+
+.input-group select option {
+  background-color: #f0f0f0; 
+  color: black; 
+}
+
+
+.input-group select option:hover {
+  background-color: #d0e0ff; 
+  color: #333; 
+}
+
+
+.input-group select option:checked,
+.input-group select option:selected {
+  background-color: #bdc0ff; 
+  color: white; 
+}
 
 .input-group-skills ul{
   display: flex;
