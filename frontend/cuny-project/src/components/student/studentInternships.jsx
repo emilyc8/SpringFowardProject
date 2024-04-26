@@ -74,7 +74,7 @@ export default function Internships(){
                                 </button>
                             </Link>
                             <Link to = "/chatbot">
-                                <button className="Chatbot"><img src="../inter_logo.png"></img>
+                                <button className="Chatbot"><img src="../logochat.png"></img>
                                     <span>Chatbot</span>
                                 </button>
                             </Link>
