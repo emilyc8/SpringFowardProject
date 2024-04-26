@@ -10,14 +10,19 @@ function Staff_Profile(){
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
+    const [userPosts, setUserPosts] = useState([]);
+    
 
     useEffect(() => {
         const fetchUserInfo = async () => {
             try{
                 const userId = localStorage.getItem('userId');
                 const response  = await axios.get(`http://127.0.0.1:5000/profile?userId=${userId}`, userId);
+                const response2 = await axios.get(`http://127.0.0.1:5000/posts?userId=${userId}`);
                 console.log('User info:', response.data);
+                console.log(response2.data)
                 setUser(response.data.user);
+                setUserPosts(response2.data);
                 setLoading(false);
             } catch (error) {
                 setError(error.message);
@@ -27,11 +32,6 @@ function Staff_Profile(){
         fetchUserInfo();
     }, [])
 
-    const currentDate = new Date();
-    const day = currentDate.getDate();
-    const month = currentDate.getMonth() + 1; // Add 1 as months are zero-based
-    const year = currentDate.getFullYear();
-    const today = `${month}/${day}/${year}`;
    
     return(
         <div className="student">
@@ -72,11 +72,11 @@ function Staff_Profile(){
                                         <span>Internships</span>
                                     </button>
                                 </Link>
-                                <Link to="/chatbot">
-                                <button className="Chatbot"><img src="../logochat.png"></img>
-                                    <span>Chatbot</span>
-                                </button>
-                            </Link>
+                                <Link to = "/chatbot">
+                                    <button className="Chatbot"><img src="../logochat.png"></img>
+                                        <span>Chatbot</span>
+                                    </button>
+                                </Link>
                             </div>
                             <div className="logout">
                                 <Link to="/">
@@ -120,17 +120,31 @@ function Staff_Profile(){
                             <div className="posts2">
                                 <h1>Activity</h1>
                                 <div className="posts_small">
-                                    <div className="ps1">
-                                        <p>You posted this | </p>
-                                        <p>None</p>
-
-                                    </div>
-                                    <div className="ps1">
-                                        <p>You posted this | {today}</p>
-                                        <p>None</p>
-                                    </div>
-                                </div>
-                                <button className="footer">Show All Posts <FontAwesomeIcon icon={faCaretDown} /></button>
+                                            {userPosts.length > 0 ? (
+                                                userPosts.map(post => (
+                                                    <div className="ps1" key={post._id}>
+                                                        {post.postType === "poll" ? (
+                                                            <>
+                                                                <p>You posted this | {new Date(post.postTime).toLocaleString()}</p>
+                                                                <p>{post.postContent.question}</p>
+                                                                <ul>
+                                                                    {post.postContent.options.map((option, index) => (
+                                                                        <li key={index}>{option.text}</li>
+                                                                    ))}
+                                                                </ul>
+                                                            </>
+                                                        ) : (
+                                                            <>
+                                                                <p>You posted this | {new Date(post.postTime).toLocaleString()}</p>
+                                                                <p>{post.postContent}</p>
+                                                            </>
+                                                        )}
+                                                    </div>
+                                                ))
+                                            ) : (
+                                                <p>No posts found. Create your first post!</p>
+                                            )}
+                                        </div>
                             </div>
                             <div className="job_openings">
                                 <h1>Internship Openings</h1>

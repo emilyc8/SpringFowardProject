@@ -12,6 +12,7 @@ function StaffHome(){
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
     const [user, setUser] = useState('');
+    const [users, setUsers] = useState([]);
 
     const [userPosts, setUserPosts] = useState([]);
     useEffect(() => {
@@ -20,10 +21,13 @@ function StaffHome(){
                 const userId = localStorage.getItem('userId');
                 const response  = await axios.get(`http://127.0.0.1:5000/home?userId=${userId}`, userId);
                 const response2 = await axios.get('http://127.0.0.1:5000/posts');
+                
+                const response3 = await axios.get('http://127.0.0.1:5000/users');
                 console.log('User info:', response.data);
                 console.log(response2.data)
                 setUser(response.data.user);
-
+                setUsers(response3.data)
+                console.log(response3.data)
                 setUserPosts(response2.data);
                 setLoading(false);
 
@@ -79,11 +83,11 @@ function StaffHome(){
                                         <span>Internships</span>
                                     </button>
                                 </Link>
-                                <Link to="/chatbot">
-                                <button className="Chatbot"><img src="../logochat.png"></img>
-                                    <span>Chatbot</span>
-                                </button>
-                            </Link>
+                                <Link to = "/chatbot">
+                                    <button className="Chatbot"><img src="../logochat.png"></img>
+                                        <span>Chatbot</span>
+                                    </button>
+                                </Link>
                             </div>
                             <div className="logout">
                             <Link to="/">
@@ -103,31 +107,18 @@ function StaffHome(){
                     <div className="sticky rightbar">
                         <div className="recommendations">
                             <h3>Recommended Users</h3>
-                            <div className="person">
-                                <img className="pfp" src="../pfp.png"/>
-                                <div className="info">
-                                    <p>Name - {user.type}</p>
-                                    <p2>{user.school}</p2>
+                            {users.slice(0, 3).map(user => (
+                                <div key={user.userID} className="person">
+                                    <Link to={`/profile/${user.userID}`}>
+                                        <img className="pfp" src="../pfp.png" alt="Profile"/>
+                                    </Link>
+                                    <div className="info">
+                                        <p>{user.firstName + " " + user.lastName}</p>
+                                        <p>{user.Details.school}</p>
+                                    </div>
+                                    <ConnectButton className="connect"/>
                                 </div>
-                                <ConnectButton className="connect"/>
-                            </div>
-                            <div className="person">
-                                <img className="pfp" src="../pfp.png"/>
-                                <div className="info">
-                                    <p>Name - {user.type}</p>
-                                    <p2>{user.school}</p2>
-                                </div>
-                                <ConnectButton className="connect"/>
-                            </div>
-                            <div className="person">
-                                <img className="pfp" src="../pfp.png"/>
-                                <div className="info">
-                                    <p>Name - {user.type}</p>
-                                    <p2>{user.school}</p2>
-                                </div>
-                                <ConnectButton className="connect"/>
-                            </div>
-                            
+                            ))}
                         </div>
                     </div>
                 </div>

@@ -48,7 +48,7 @@
     grid-column-start: 1;
     grid-row-start: 1;
     width: 300px;
-    margin-left: 10px;
+    margin-left: 20px;
     margin-right: 2rem;
 }
 
@@ -85,7 +85,7 @@
 
 .selection{
     margin-left: 20px;
-    padding-bottom: 250px;
+    padding-bottom: 190px;
 }
 
 .sidebar button{
@@ -321,10 +321,11 @@
 .rightbar{
     margin: 0px;
     margin-left: 0;
-    margin-right: 2rem;
+    margin-right: 1.5rem;
     grid-column-start: 3;
     grid-row-start: 1;
-    width: 310px;
+    width: fit-content;
+    max-width: 310px;
     border: 1px solid rgb(230, 230, 230);
     background: #ffff;
     border-radius: 5px;
@@ -343,33 +344,35 @@
 
 
 .person button.connect{
-    grid-column-start: 3;
-    width:40px;
-    height:40px;
-    justify-self: right;
+    width: 40px;
+    height: 40px;
     padding: 0;
     border-radius: 30px;
     margin-top: 10px;
+    position: absolute;
+    margin-left: 250px;
     
 }
 
 .rightbar .person{
     border-top: 1px solid gainsboro;
     padding: 10px;
-    display: grid;
+    display: flex;
+    float: left;
+    width: 290px;
 }
 
 .rightbar .info{
-    line-height: 5px;
     text-align: left;
     margin-left: 0px;
-    grid-column-start: 2;
     font-size: 14px;
     float: left;
     width: fit-content;
+    flex-wrap: wrap;
+    margin-right: 26px;
 }
 
-.rightbar img{
+.rightbar img, .rightbar a{
     height: 50px;
     width: 50px;
     margin-right: 20px;
@@ -377,8 +380,9 @@
 
 .rightbar p{
     padding-top: 0px;
-    margin-bottom: 15px;
+    /* margin-bottom: 15px; */
     display: flex;
+    margin-top: 5px;
 }
 
 .rightbar p2{

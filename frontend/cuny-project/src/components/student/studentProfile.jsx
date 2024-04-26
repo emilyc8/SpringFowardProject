@@ -5,6 +5,7 @@ import { faCaretDown, faLessThan} from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Edit_Profile from "./editProfile";
+import ReactLoading from 'react-loading';
 
 function Student_Profile(){
 
@@ -42,7 +43,14 @@ function Student_Profile(){
     return(
         <div className="student" style={feedStyle}>
             {loading ? (
-                <p>Loading...</p>
+                <div className="loading">
+                    <ReactLoading
+                        type={"balls"}
+                        color={"#00000"}
+                        height={50}
+                        width={50}
+                        />
+                </div>
             ) : error ? (
                 <p>Error: {error}</p>
             ) : user ? (
@@ -80,10 +88,10 @@ function Student_Profile(){
                                          </button>
                                      </Link>
                                      <Link to = "/chatbot">
-                                <button className="Chatbot"><img src="../logochat.png"></img>
-                                    <span>Chatbot</span>
-                                </button>
-                            </Link>
+                                        <button className="Chatbot"><img src="../logochat.png"></img>
+                                            <span>Chatbot</span>
+                                        </button>
+                                    </Link>
                                  </div>
                                  <div className="logout">
                                      <Link to="/">

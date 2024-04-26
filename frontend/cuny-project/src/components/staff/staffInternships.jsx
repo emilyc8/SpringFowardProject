@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useAsyncError } from "react-router-dom";
 import '../../styles/internships.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faLessThan } from "@fortawesome/free-solid-svg-icons";
@@ -13,13 +13,17 @@ export default function Internships2(){
     
     const [showMore,setShowMore] = useState(true);
     const [internships, setInternships] = useState([]);
+    const [user, setUser] = useState('');
     // const [index,setIndex] = useState(1);
 
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const response = await axios.get(`http://127.0.0.1:5000/internships?`);
+                const userId = localStorage.getItem('userId');
+                const response2  = await axios.get(`http://127.0.0.1:5000/home?userId=${userId}`, userId);
                 setInternships(response.data);
+                setUser(response2.data.user)
                 console.log(response.data);
             } catch (error) {
                 console.error('Error fetching internships:', error);
@@ -51,7 +55,7 @@ export default function Internships2(){
                     <div className="sidebar">
                         <div className="profile">
                             <img className="pfp" src="../pfp.png"/>
-                            <span>Full Name</span>
+                            <span>{user.firstName + " " + user.lastName}</span>
                         </div>
                         <div className="selection">
                             <Link to="/staff/staffProfile">
@@ -69,7 +73,7 @@ export default function Internships2(){
                                     <span>Internships</span>
                                 </button>
                             </Link>
-                            <Link to="/chatbot">
+                            <Link to = "/chatbot">
                                 <button className="Chatbot"><img src="../logochat.png"></img>
                                     <span>Chatbot</span>
                                 </button>

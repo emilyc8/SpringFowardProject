@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { getBotResponse } from './openai';
+import "../styles/chatbot.css"
 
 const Chatbot = () => {
     const [messages, setMessages] = useState([]);
@@ -32,10 +33,12 @@ const Chatbot = () => {
     };
 
     return (
-        <div>
-            <h1>Welcome to the Chatbot!</h1>
-            <p>This is a simple chatbot interface.</p>
-            <div id="chat-container" ref={chatContainerRef} style={{ maxHeight: '500px', overflowY: 'auto', borderColor: 'red', border: 'solid' }}>
+        <div className="chatbot">
+            <div className="welcome">
+                <h1>Welcome to the CUNY Connect Chatbot!</h1>
+                <p>How can I help you today?</p>
+            </div>
+            <div id="chat-container" ref={chatContainerRef}>
                 <div id="chat-content">
                     {messages.map((message, index) => (
                         <div key={index} className={`message ${message.sender}-message`}>
