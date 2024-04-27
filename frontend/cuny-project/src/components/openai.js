@@ -1,4 +1,4 @@
-const apiKey = "sk-proj-WTBkuh2FVg7YwMSy8ObKT3BlbkFJxTHbG2N9ni1nVtkRr9kE";
+const apiKey = "INSERT API KEY";
 
 let conversation = [];
 export const getBotResponse = async (userMessage) => {
